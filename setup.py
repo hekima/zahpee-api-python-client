@@ -1,5 +1,5 @@
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 def read(fname):
@@ -13,12 +13,12 @@ setup(
     description="Zahpee API Python Client",
     license="MIT",
     keywords="zahpee api python",
-    url="http://packages.python.org/an_example_pypi_project",
-    packages=['src', 'unittest'],
+    url="http://www.zahpee.com",
+    packages=find_packages(),
     long_description=read('README.md'),
+    test_suite="tests",
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Topic :: Utilities",
-        "License :: OSI Approved :: BSD License",
         ],
     )

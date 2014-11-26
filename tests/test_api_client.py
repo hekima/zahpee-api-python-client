@@ -1,7 +1,8 @@
-import unittest
 import urllib
-import api_client
+
 from mockito import when, mock
+
+import api_client
 
 BASE_URL = "test"
 VERSION = "v1.0"
@@ -19,7 +20,8 @@ class FileFake:
 
 
 class ZahpeeApiTest(unittest.TestCase):
-    def setUp(self):
+
+    def __init__(self):
         self.api = api_client.ZahpeeAPI(base_url=BASE_URL, token="")
 
     def test_get_access_token(self):
