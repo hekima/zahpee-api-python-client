@@ -14,7 +14,7 @@ setup(
     license="MIT",
     keywords="zahpee api python",
     url="http://www.zahpee.com",
-    packages=find_packages(),
+    packages=find_packages(exclude=["test*"]),
     long_description=read('README.md'),
     test_suite="tests",
     classifiers=[
