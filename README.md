@@ -1,6 +1,8 @@
-zahpee-api-python-client
+Zahpee API Python Client
 ========================
 
 [![Build Status](https://travis-ci.org/zahpee/zahpee-api-python-client.svg?branch=master)](https://travis-ci.org/zahpee/zahpee-api-python-client/)
 
-Python client for Zahpee API
+This is the oficial and open-source python client for Zahpee API. 
+
+Please, feel free for help us improve this client.
