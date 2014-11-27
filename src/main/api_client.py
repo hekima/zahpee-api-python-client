@@ -1,4 +1,4 @@
-import urllib.request
+from urllib import request
 import json
 
 # Users Endpoint
@@ -44,7 +44,7 @@ class ZahpeeAPI:
         if user_type:
             params['type'] = user_type
 
-        params = urllib.urlencode(params)
-        response = urllib.request.urlopen(self.base_url + "/" + self.version + "/" + ENDPOINT_LIST_USERS + '?%s' % params)
+        print(self.base_url + "/" + self.version + "/" + ENDPOINT_LIST_USERS + '?%s' % params)
+        response = request.urlopen(self.base_url + "/" + self.version + "/" + ENDPOINT_LIST_USERS + '?%s' % params)
 
         return json.loads(response.read().decode("utf8"))
