@@ -1,1 +1,1 @@
-mockito
+mockito-without-hardcoded-distribute-version
