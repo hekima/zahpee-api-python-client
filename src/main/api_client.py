@@ -19,7 +19,7 @@ class ZahpeeAPI:
                  version="v1.0",
                  token=""):
 
-        """Constructor for api
+        """ Constructor for api
 
         :param base_api_url: Api url
         :param base_app_url: App url
@@ -35,8 +35,7 @@ class ZahpeeAPI:
 
     @staticmethod
     def _make_post_request(request_uri, params):
-        """
-        Makes, parses and decodes a POST request to the app or the API
+        """ Makes, parses and decodes a POST request to the app or the API
 
         :param request_uri: The request URI
         :param params: The request parameters in dic format
@@ -64,7 +63,7 @@ class ZahpeeAPI:
         return json.loads(request.urlopen(request_uri).read().decode("utf8"))
 
     def login(self, client_id, client_secret, grant_type, password):
-        """Logs the user in, returning an access token if the login goes OK, or throwing an error otherwise
+        """ Logs the user in, returning an access token if the login goes OK, or throwing an error otherwise
 
         :param client_id: Client id of Zahpee API
         :param client_secret: Client secret of Zahpee API
