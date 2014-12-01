@@ -62,7 +62,7 @@ class ZahpeeAPI:
 
         return json.loads(request.urlopen(request_uri).read().decode("utf8"))
 
-    def login(self, client_id, client_secret, grant_type, password):
+    def login(self, client_id, client_secret, grant_type, user, password):
         """ Logs the user in, returning an access token if the login goes OK, or throwing an error otherwise
 
         :param client_id: Client id of Zahpee API
@@ -78,9 +78,10 @@ class ZahpeeAPI:
             "client_secret": client_secret,
             "grant_type": grant_type,
             "password": password,
+            "user": user,
         }
 
-        return self._make_get_request(self.base_app_url + "/oauth/token", params)
+        return self._make_get_request(self.base_app_url + "/oauth/token/", params)
 
     def list_users(self, ids):
         """ List all users wanted
