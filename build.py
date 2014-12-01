@@ -28,7 +28,7 @@ default_task = "publish"
 
 @init
 def initialize(project):
-    project.name = 'zahpee-api-client'
+    project.name = 'zahpeeapi'
     project.version = '0.0.1'
 
     # Build dependencies
