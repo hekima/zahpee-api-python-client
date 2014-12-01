@@ -78,7 +78,7 @@ class ZahpeeAPI:
             "client_secret": client_secret,
             "grant_type": grant_type,
             "password": password,
-            "user": user,
+            "username": user,
         }
 
         return self._make_get_request(self.base_app_url + "/oauth/token/", params)
