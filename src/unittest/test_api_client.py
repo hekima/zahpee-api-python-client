@@ -1,9 +1,6 @@
-from urllib import request
-
 import unittest
 
-from mockito import when
-from api_client import ZahpeeAPI
+from zahpeeapi.api_client import ZahpeeAPI
 
 
 BASE_URL = "http://test"
