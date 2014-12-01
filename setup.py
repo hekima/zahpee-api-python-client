@@ -5,7 +5,7 @@ from setuptools import setup,find_packages
 if __name__ == '__main__':
     setup(
           name = 'zahpeeapi',
-          version = '0.0.3',
+          version = '0.0.4',
           description = '''''',
           long_description = '''<class 'pybuilder.core.description'>''',
           author = "",
@@ -13,7 +13,8 @@ if __name__ == '__main__':
           license = '',
           url = '',
           scripts = [],
-          packages = ['src/main/python/zahpeeapi'],
+          packages = find_packages('src/main/python'),
+          package_dir = {'':'src/main/python'},
           classifiers = ['Development Status :: 3 - Alpha', 'Programming Language :: Python'],
           entry_points={
           'console_scripts':
