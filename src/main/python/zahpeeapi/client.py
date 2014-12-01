@@ -81,7 +81,7 @@ class ZahpeeAPI:
             "username": user,
         }
 
-        return self._make_get_request(self.base_app_url + "/oauth/token/", params)
+        return self._make_get_request(self.base_app_url + "/oauth/token", params)
 
     def list_users(self, ids):
         """ List all users wanted
