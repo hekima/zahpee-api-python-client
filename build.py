@@ -29,7 +29,7 @@ default_task = "publish"
 @init
 def initialize(project):
     project.name = 'zahpeeapi'
-    project.version = '0.0.1'
+    project.version = '0.0.2'
 
     # Build dependencies
     project.build_depends_on('pytest')
