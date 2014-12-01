@@ -1,6 +1,10 @@
+from urllib import request
+
 import unittest
 
-import api_client
+from mockito import when
+
+import src.main.api_client
 
 
 BASE_URL = "http://test"
@@ -21,7 +25,7 @@ class FileFake:
 class ZahpeeApiTest(unittest.TestCase):
 
     def setUp(self):
-        self.api = api_client.ZahpeeAPI(base_api_url="")
+        self.api = src.main.api_client.ZahpeeAPI(base_api_url="")
 
     def test_simple_request(self):
         """ Test a simple request in api without custom parameter
