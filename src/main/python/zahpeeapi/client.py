@@ -60,6 +60,8 @@ class ZahpeeAPI:
         if params and params != {}:
             request_uri = request_uri + '?' + parse.urlencode(params)
 
+        print(request_uri)
+
         return json.loads(request.urlopen(request_uri).read().decode("utf8"))
 
     def login(self, client_id, client_secret, grant_type, user, password):
@@ -108,7 +110,6 @@ class ZahpeeAPI:
         }
 
         return self._make_get_request(request_uri, params)
-
 
     def create_user(self, email, name):
         """ Create a Zahpee Events user

@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/unittest" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/python" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/Zahpee_API_Python_Client.egg-info" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
