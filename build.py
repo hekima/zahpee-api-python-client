@@ -36,7 +36,7 @@ def initialize(project):
     project.build_depends_on('mockito-without-hardcoded-distribute-version')
 
     # Core Configuration
-    project.set_property('dir_dist', '$dir_target/dist/zahpee-api-client')
+    project.set_property('dir_dist', '$dir_target/dist/zahpeeapi')
 
     # Flake8 Configuration
     project.set_property('flake8_break_build', True)
