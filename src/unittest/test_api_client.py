@@ -1,6 +1,6 @@
 import unittest
 
-from zahpeeapi.api_client import ZahpeeAPI
+from zahpee_api import ZahpeeAPI
 
 
 BASE_URL = "http://test"
