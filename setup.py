@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from setuptools import setup
+from setuptools import setup,find_packages
 
 if __name__ == '__main__':
     setup(
@@ -13,8 +13,7 @@ if __name__ == '__main__':
           license = '',
           url = '',
           scripts = [],
-          packages = ['zahpeeapi'],
-          py_modules = ['__init__'],
+          packages = find_packages('src/main/python/zahpeeapi'),
           classifiers = ['Development Status :: 3 - Alpha', 'Programming Language :: Python'],
           entry_points={
           'console_scripts':
