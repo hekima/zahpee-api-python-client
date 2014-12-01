@@ -82,26 +82,23 @@ class ZahpeeAPI:
 
         return self._make_get_request(self.base_app_url + "/oauth/token", params)
 
-    def list_users(self, limit=10, user_type=None):
-        """ List all user with filter
+    def list_users(self, ids):
+        """ List all users wanted
 
-        :param limit: Number of users to return
-        :param user_type: Type of users
+        :param ids: List of ids
 
-        :return: List of user
+        :return: List of users
         """
 
         request_uri = self.base_api_url + "/" + self.version + "/" + ENDPOINT_USERS_LIST
 
         params = {
-            "limit": limit,
+            "ids": ids,
             "access_token": self.access_token
         }
 
-        if user_type:
-            params['user_type'] = user_type
-
         return self._make_get_request(request_uri, params)
+
 
     def create_user(self, email, name):
         """ Create a Zahpee Events user
