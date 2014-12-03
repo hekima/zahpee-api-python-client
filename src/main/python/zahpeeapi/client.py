@@ -93,14 +93,14 @@ class ZahpeeAPI:
         :return: List of users
         """
 
-        list = ''
-        for id in ids:
-            if list == '':
-                list = str(id)
+        user_list = ''
+        for user_id in ids:
+            if user_list == '':
+                user_list = str(user_id)
             else:
-                list = list + "," + str(id)
+                user_list = user_list + "," + str(user_id)
 
-        request_uri = self.base_api_url + "/" + self.version + "/" + ENDPOINT_USERS_LIST + list
+        request_uri = self.base_api_url + "/" + self.version + "/" + ENDPOINT_USERS_LIST + user_list
         print(request_uri)
         print("access_token:" + self.access_token)
 
