@@ -5,7 +5,7 @@ from setuptools import setup,find_packages
 if __name__ == '__main__':
     setup(
           name = 'zahpeeapi',
-          version = '0.0.6',
+          version = '0.0.7',
           description = '''''',
           long_description = '''<class 'pybuilder.core.description'>''',
           author = "",
