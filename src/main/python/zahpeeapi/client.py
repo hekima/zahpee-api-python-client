@@ -98,7 +98,7 @@ class ZahpeeAPI:
             else:
                 list = list + "," + str(id)
 
-        request_uri = self.base_api_url + "/" + self.version + "/" + ENDPOINT_USERS_LIST + "/" + list
+        request_uri = self.base_api_url + "/" + self.version + "/" + ENDPOINT_USERS_LIST + list
 
         params = {
             # "ids": ids,
