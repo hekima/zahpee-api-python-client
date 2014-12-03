@@ -99,6 +99,8 @@ class ZahpeeAPI:
                 list = list + "," + str(id)
 
         request_uri = self.base_api_url + "/" + self.version + "/" + ENDPOINT_USERS_LIST + list
+        print(request_uri)
+        print("access_token:" + self.access_token)
 
         params = {
             # "ids": ids,
