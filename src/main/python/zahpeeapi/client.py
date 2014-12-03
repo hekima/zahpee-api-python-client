@@ -44,7 +44,7 @@ class ZahpeeAPI:
         data = parse.urlencode(params)
 
         requests = request.Request(request_uri, data.encode("utf8"))
-        response = requests.urlopen(request)
+        response = requests.urlopen(requests)
 
         return json.loads(response.read().decode("utf8"))
 
