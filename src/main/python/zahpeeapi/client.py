@@ -2,7 +2,7 @@ from urllib import request, parse
 import json
 
 # Users Endpoint
-ENDPOINT_USERS_LIST = "users/list"
+ENDPOINT_USERS_LIST = "users/list/"
 ENDPOINT_USERS = "users/"
 
 
@@ -91,10 +91,17 @@ class ZahpeeAPI:
         :return: List of users
         """
 
-        request_uri = self.base_api_url + "/" + self.version + "/" + ENDPOINT_USERS_LIST
+        list = ''
+        for id in ids:
+            if list == '':
+                list = str(id)
+            else:
+                list = list + "," + str(id)
+
+        request_uri = self.base_api_url + "/" + self.version + "/" + ENDPOINT_USERS_LIST + "/" + list
 
         params = {
-            "ids": ids,
+            # "ids": ids,
             "access_token": self.access_token
         }
 
