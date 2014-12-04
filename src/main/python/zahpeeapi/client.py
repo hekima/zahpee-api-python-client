@@ -111,7 +111,7 @@ class ZahpeeAPI:
 
         return self._make_get_request(request_uri, params)
 
-    def create_user(self, email, name, password, gmt, invitation_type):
+    def create_user(self, email, name, password, gmt='-3', invitation_type='ZAHPEE_EVENTS'):
         """ Create a Zahpee Events user
 
         :param email: User email
