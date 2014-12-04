@@ -7,7 +7,7 @@ This is the official and open-source python client for Zahpee API. Please, feel 
 
 # How to install Zahpee Client:
 
-In your environment install it with:
+In your environment install it with pip command:
 
 ```
  pip install git+https://github.com/zahpee/zahpee-api-python-client.git
