@@ -59,7 +59,7 @@ class ZahpeeApiTest(unittest.TestCase):
 
         assert result == {'users': []}
 
-    def test_create_user(self):
+    def create_user(self):
         """ Test simple creation of an user
         """
 
