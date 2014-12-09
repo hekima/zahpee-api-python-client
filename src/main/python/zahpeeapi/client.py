@@ -111,14 +111,14 @@ class ZahpeeAPI:
 
         return self._make_get_request(request_uri, params)
 
-    def create_user(self, email, name, password, gmt, invitation_type):
+    def create_user(self, email, name, password, gmt, type):
         """ Create a Zahpee Events user
 
         :param email: User email
         :param name: User name
         :param password: User password
         :param gmt: User gmt
-        :param invitationType: User invitationType
+        :param type: User Type : ADMIN OR NO_INTERFACE_ACCESS
         :return: The generated subscription token
         """
 
@@ -132,7 +132,7 @@ class ZahpeeAPI:
             'email': email,
             'password': password,
             'gmt': gmt,
-            'invitationType': invitation_type,
+            'type': type,
             'access_token': self.access_token
         }
 
