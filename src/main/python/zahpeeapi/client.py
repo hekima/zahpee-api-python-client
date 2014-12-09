@@ -43,6 +43,8 @@ class ZahpeeAPI:
         """
         data = parse.urlencode(params)
 
+        print(request_uri)
+
         requests = request.Request(request_uri, data.encode("utf8"))
         response = request.urlopen(requests)
 
@@ -101,24 +103,21 @@ class ZahpeeAPI:
                 user_list = user_list + "," + str(user_id)
 
         request_uri = self.base_api_url + "/" + self.version + "/" + ENDPOINT_USERS_LIST + user_list
-        print(request_uri)
-        print("access_token:" + self.access_token)
 
         params = {
-            # "ids": ids,
             "access_token": self.access_token
         }
 
         return self._make_get_request(request_uri, params)
 
-    def create_user(self, email, name, password, gmt, type):
+    def create_user(self, email, name, password, gmt, user_type):
         """ Create a Zahpee Events user
 
         :param email: User email
         :param name: User name
         :param password: User password
         :param gmt: User gmt
-        :param type: User Type : ADMIN OR NO_INTERFACE_ACCESS
+        :param user_type: User Type : ADMIN OR NO_INTERFACE_ACCESS
         :return: The generated subscription token
         """
 
@@ -132,7 +131,7 @@ class ZahpeeAPI:
             'email': email,
             'password': password,
             'gmt': gmt,
-            'type': type,
+            'type': user_type,
             'access_token': self.access_token
         }
 
