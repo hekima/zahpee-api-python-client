@@ -59,7 +59,7 @@ class ZahpeeApiTest(unittest.TestCase):
 
         assert result == {'users': []}
 
-    def create_user(self):
+    def test_create_user(self):
         """ Test simple creation of an user
         """
 
@@ -71,8 +71,8 @@ class ZahpeeApiTest(unittest.TestCase):
             'name': name,
             'email': email,
             'password': password,
-            'gmt': '-3',
-            'invitationType': 'ZAHPEE_EVENTS',
+            'gmt': -3,
+            'type': 'ZAHPEE_EVENTS',
             'access_token': ''
         }
 
@@ -82,6 +82,6 @@ class ZahpeeApiTest(unittest.TestCase):
         response = RequestMocked("This is a bunch\nOf Text!")
         when(request).urlopen(requests).thenReturn(response)
         when(response).read().thenReturn(b'{"name":"Zahpee"}')
-        result = self.api.create_user(email=email, name=name, password=password, gmt='-3', user_type='ZAHPEE_EVENTS')
+        result = self.api.create_user(email=email, name=name, password=password, gmt=-3, user_type='ZAHPEE_EVENTS')
 
         assert result == {'name': 'Zahpee'}
