@@ -51,3 +51,5 @@ def initialize(project):
 
     project.set_property('clean_propagate_stdout', True)
     project.set_property('clean_propagate_stderr', True)
+
+    project.set_property('coverage_threshold_warn', 80)
