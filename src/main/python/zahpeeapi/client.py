@@ -4,6 +4,8 @@ import json
 # Users Endpoint
 ENDPOINT_USERS_LIST = "users/list/"
 ENDPOINT_USERS = "users/"
+ENDPOINT_MONITORINGS = "monitorings/"
+ENDPOINT_POSTS = "posts/"
 
 
 class ZahpeeAPI:
@@ -136,3 +138,32 @@ class ZahpeeAPI:
         }
 
         return self._make_post_request(request_uri, params)
+
+    def get_posts(self, monitoring_id, limit=10, sentiment='all', noise='notgarbage', themeId='all', source='all',
+                  sort='updesc', beginDate='null', endDate='null', pageToken='null', page=0):
+
+        """ Get posts from a specific monitoring.
+
+        :param monitoring_id: The id of the monitoring
+        :param limit: The number of posts to be returned
+        :return: The posts retrieved
+        """
+
+        request_uri = self.base_api_url + "/" + self.version + "/" + \
+                      ENDPOINT_MONITORINGS + str(monitoring_id) + ENDPOINT_POSTS
+
+        params = {
+            'limit': limit,
+            'sentiment': sentiment,
+            'noise': noise,
+            'themeId': themeId,
+            'channel': source,
+            'sort': sort,
+            'beginDate': beginDate,
+            'endDate': endDate,
+            'pageToken': pageToken,
+            'page': page,
+            'access_token': self.access_token
+        }
+
+        return self._make_get_request(request_uri, params)
