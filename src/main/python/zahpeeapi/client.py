@@ -150,7 +150,7 @@ class ZahpeeAPI:
         """
 
         request_uri = self.base_api_url + "/" + self.version + "/" + \
-                      ENDPOINT_MONITORINGS + str(monitoring_id) + ENDPOINT_POSTS
+                      ENDPOINT_MONITORINGS + str(monitoring_id) + "/" + ENDPOINT_POSTS
 
         params = {
             'limit': limit,
