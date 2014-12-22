@@ -6,6 +6,7 @@ ENDPOINT_USERS_LIST = "users/list/"
 ENDPOINT_USERS = "users/"
 ENDPOINT_MONITORINGS = "monitorings/"
 ENDPOINT_POSTS = "posts/"
+ENDPOINT_HASHTAGS = "hashtags/"
 
 
 class ZahpeeAPI:
@@ -163,6 +164,24 @@ class ZahpeeAPI:
             'endDate': endDate,
             'pageToken': pageToken,
             'page': page,
+            'access_token': self.access_token
+        }
+
+        return self._make_get_request(request_uri, params)
+
+
+    def get_hashtags(self, monitoring_id):
+
+        """ Get hashtags associated with a specific monitoring.
+
+        :param monitoring_id: The id of the monitoring
+        :return: The list of hashtags retrieved
+        """
+
+        request_uri = self.base_api_url + "/" + self.version + "/" + \
+                      ENDPOINT_MONITORINGS + str(monitoring_id) + "/" + ENDPOINT_HASHTAGS
+
+        params = {
             'access_token': self.access_token
         }
 
