@@ -29,7 +29,7 @@ default_task = "publish"
 @init
 def initialize(project):
     project.name = 'zahpeeapi'
-    project.version = '0.0.4'
+    project.version = '0.0.5'
     project.summary = 'The Zahpee API Python client'
     project.description = 'The Zahpee API Python client'
     project.url= 'https://github.com/zahpee/zahpee-api-python-client'
