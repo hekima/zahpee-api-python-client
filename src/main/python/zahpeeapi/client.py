@@ -90,6 +90,25 @@ class ZahpeeAPI:
 
         return self._make_get_request(self.base_app_url + "/oauth/token", params)
 
+    def refresh(self, client_id, client_secret, refresh_token):
+        """ Refreshes the user access token, returning a new and valid access token if it goes OK, or throwing an error
+
+        :param client_id: Client id of Zahpee API
+        :param client_secret: Client secret of Zahpee API
+        :param refresh_token: The user refresh_token
+
+        :return The generated access token
+        """
+
+        params = {
+            "client_id": client_id,
+            "client_secret": client_secret,
+            "grant_type": 'refresh_token',
+            "refresh_token": refresh_token,
+            }
+
+        return self._make_get_request(self.base_app_url + "/oauth/token", params)
+
     def list_users(self, ids):
         """ List all users wanted
 
