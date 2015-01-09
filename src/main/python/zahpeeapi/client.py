@@ -1,5 +1,8 @@
+import logging
 from urllib import request, parse
 import json
+
+logger = logging.getLogger(__name__)
 
 # Users Endpoint
 ENDPOINT_USERS_LIST = "users/list/"
@@ -90,6 +93,21 @@ class ZahpeeAPI:
 
         return self._make_get_request(self.base_app_url + "/oauth/token", params)
 
+    def is_access_token_valid(self, access_token):
+        """
+        :param access_token: The user access token
+        :return True or False
+        """
+
+        params = {
+            "access_token": access_token,
+        }
+        response = self._make_get_request(self.base_api_url + "/" + self.version + "/auth/test", params)
+        if response['message'] == 'You are correctly authenticated.':
+            return True
+        else:
+            return False
+
     def refresh(self, client_id, client_secret, refresh_token):
         """ Refreshes the user access token, returning a new and valid access token if it goes OK, or throwing an error
 
@@ -107,7 +125,13 @@ class ZahpeeAPI:
             "refresh_token": refresh_token,
             }
 
-        return self._make_get_request(self.base_app_url + "/oauth/token", params)
+        try:
+            response = self._make_get_request(self.base_app_url + "/oauth/token", params)
+        except Exception as e:
+            logging.error('Error trying to access Zahpee Api ' + str(e))
+            response = ''
+
+        return response
 
     def list_users(self, ids):
         """ List all users wanted
@@ -187,7 +211,6 @@ class ZahpeeAPI:
         }
 
         return self._make_get_request(request_uri, params)
-
 
     def get_hashtags(self, monitoring_id):
 
