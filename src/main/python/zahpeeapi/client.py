@@ -243,3 +243,20 @@ class ZahpeeAPI:
         }
 
         return self._make_get_request(request_uri, params)
+
+    def get_monitoring(self, monitoring_id):
+
+        """ Get the user monitoring with the given id.
+
+        :param monitoring_id: The id of the monitoring
+        :return: The list of hashtags retrieved
+        """
+
+        request_uri = self.base_api_url + "/" + self.version + "/" + ENDPOINT_MONITORINGS + str(monitoring_id)
+
+        params = {
+            'access_token': self.access_token
+        }
+
+        return self._make_get_request(request_uri, params)
+
