@@ -1,6 +1,7 @@
 import logging
 from urllib import request, parse
 import json
+from urllib import error
 
 logger = logging.getLogger(__name__)
 
@@ -102,10 +103,13 @@ class ZahpeeAPI:
         params = {
             "access_token": access_token,
         }
-        response = self._make_get_request(self.base_api_url + "/" + self.version + "/auth/test", params)
-        if response['message'] == 'You are correctly authenticated.':
-            return True
-        else:
+        try:
+            response = self._make_get_request(self.base_api_url + "/" + self.version + "/auth/test", params)
+            if response['message'] == 'You are correctly authenticated.':
+                return True
+            else:
+                return False
+        except error.HTTPError as e:
             return False
 
     def refresh(self, client_id, client_secret, refresh_token):
