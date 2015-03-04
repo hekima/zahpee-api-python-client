@@ -11,6 +11,7 @@ ENDPOINT_USERS = "users/"
 ENDPOINT_MONITORINGS = "monitorings/"
 ENDPOINT_POSTS = "posts/"
 ENDPOINT_HASHTAGS = "hashtags/"
+ENDPOINT_HASHTAG = "hashtag"
 
 
 class ZahpeeAPI:
@@ -264,3 +265,22 @@ class ZahpeeAPI:
 
         return self._make_get_request(request_uri, params)
 
+    def get_monitoring_by_hashtag(self, hashtag):
+
+        """ Get the monitoring with the given hashtag.
+
+        :param hashtag: The hashtag
+        :return: The monitoring associated with the hashtag given
+        """
+
+        request_uri = self.base_api_url + "/" + self.version + "/" + ENDPOINT_MONITORINGS + ENDPOINT_HASHTAG
+
+        params = {
+            'hashtag': str(hashtag),
+            'access_token': self.access_token
+        }
+
+        try:
+            return self._make_get_request(request_uri, params)
+        except error.HTTPError as e:
+            return 'No panel found with the hashtag: ' + hashtag
