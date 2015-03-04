@@ -283,4 +283,4 @@ class ZahpeeAPI:
         try:
             return self._make_get_request(request_uri, params)
         except error.HTTPError as e:
-            return 'No panel found with the hashtag: ' + hashtag
+            return None
