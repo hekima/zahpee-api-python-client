@@ -12,8 +12,6 @@ ENDPOINT_MONITORINGS = "monitorings/"
 ENDPOINT_POSTS = "posts/"
 ENDPOINT_HASHTAGS = "hashtags/"
 ENDPOINT_HASHTAG = "hashtag"
-ENDPOINT_UPLOAD = "upload"
-
 
 class ZahpeeAPI:
     """ This class was created with the goal to be a separated module.
@@ -216,7 +214,7 @@ class ZahpeeAPI:
 
         request_uri = self.base_api_url + "/" + self.version + "/" + \
                       ENDPOINT_MONITORINGS + str(monitoring_id) + "/" + ENDPOINT_POSTS + \
-                      ENDPOINT_UPLOAD + "?access_token=" + self.access_token
+                      "?access_token=" + self.access_token
 
         params = {
             'uploadDate': upload_date,
@@ -228,7 +226,7 @@ class ZahpeeAPI:
             'content': content,
             'source': source,
             'sourceID': source_id,
-            'image': image,
+            'base64Image': image,
             'uploadDate': upload_date,
         }
 
