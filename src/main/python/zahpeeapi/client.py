@@ -12,6 +12,7 @@ ENDPOINT_MONITORINGS = "monitorings/"
 ENDPOINT_POSTS = "posts/"
 ENDPOINT_HASHTAGS = "hashtags/"
 ENDPOINT_HASHTAG = "hashtag"
+ENDPOINT_UPLOAD = "upload"
 
 
 class ZahpeeAPI:
@@ -42,20 +43,28 @@ class ZahpeeAPI:
         self.access_token = token
 
     @staticmethod
-    def _make_post_request(request_uri, params):
+    def _make_post_request(request_uri, params, rawPost=False):
         """ Makes, parses and decodes a POST request to the app or the API
 
         :param request_uri: The request URI
         :param params: The request parameters in dic format
         :return The decoded response
         """
-        data = parse.urlencode(params)
+        
+        if rawPost:
+            data = json.dumps(params)
+        else:
+            data = parse.urlencode(params)
 
         print(request_uri)
 
-        requests = request.Request(request_uri, data.encode("utf8"))
+        if rawPost:
+            requests = request.Request(request_uri, data.encode("utf8"),
+                    {'Content-Type': 'application/json'})
+        else:
+            requests = request.Request(request_uri, data.encode("utf8"))
+        
         response = request.urlopen(requests)
-
         return json.loads(response.read().decode("utf8"))
 
     @staticmethod
@@ -187,6 +196,43 @@ class ZahpeeAPI:
         }
 
         return self._make_post_request(request_uri, params)
+
+    def create_post(self, monitoring_id, author_name, author_login,
+            author_avatar, content, source, source_id, image,
+            upload_date):
+        """ Create Zahpee post in given monitoring
+
+        :param monitoring_id Monitoring that should receive the post
+        :param author_name Name of the author that published this post
+        :param author_login Login of the author that published this post
+        :param author_avatar Avatar of the author that published this post
+        :param content Post content
+        :param source Source of this post (e.g. Twitter, Facebook)
+        :param source_id Unique identifier used by 'Source'
+        :param image Base64 string of image attached to this post
+        :param upload_date Date in which post was published
+        :return
+        """
+
+        request_uri = self.base_api_url + "/" + self.version + "/" + \
+                      ENDPOINT_MONITORINGS + str(monitoring_id) + "/" + ENDPOINT_POSTS + \
+                      ENDPOINT_UPLOAD
+
+        params = {
+            'uploadDate': upload_date,
+            'profile': {
+                'name': author_name,
+                'login': author_login,
+                'avatar': author_avatar,
+            },
+            'content': content,
+            'source': source,
+            'sourceID': source_id,
+            'image': image,
+            'uploadDate': upload_date,
+        }
+
+        return self._make_post_request(request_uri, params, True)
 
     def get_posts(self, monitoring_id, limit=10, sentiment='all', noise='notgarbage', themeId='all', source='all',
                   sort='updesc', beginDate='null', endDate='null', pageToken='null', page=0):
