@@ -230,6 +230,7 @@ class ZahpeeAPI:
             'sourceID': source_id,
             'image': image,
             'uploadDate': upload_date,
+            'access_token': self.access_token,
         }
 
         return self._make_post_request(request_uri, params, True)
