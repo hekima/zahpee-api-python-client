@@ -216,7 +216,7 @@ class ZahpeeAPI:
 
         request_uri = self.base_api_url + "/" + self.version + "/" + \
                       ENDPOINT_MONITORINGS + str(monitoring_id) + "/" + ENDPOINT_POSTS + \
-                      ENDPOINT_UPLOAD
+                      ENDPOINT_UPLOAD + "?access_token=" + self.access_token
 
         params = {
             'uploadDate': upload_date,
@@ -230,7 +230,6 @@ class ZahpeeAPI:
             'sourceID': source_id,
             'image': image,
             'uploadDate': upload_date,
-            'access_token': self.access_token,
         }
 
         return self._make_post_request(request_uri, params, True)
