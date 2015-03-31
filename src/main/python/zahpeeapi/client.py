@@ -196,7 +196,7 @@ class ZahpeeAPI:
         return self._make_post_request(request_uri, params)
 
     def create_post(self, monitoring_id, author_name, author_login,
-            author_avatar, content, source, source_id, image,
+            author_avatar, author_url, content, source, source_id, image,
             upload_date):
         """ Create Zahpee post in given monitoring
 
