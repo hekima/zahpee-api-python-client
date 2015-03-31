@@ -204,6 +204,7 @@ class ZahpeeAPI:
         :param author_name Name of the author that published this post
         :param author_login Login of the author that published this post
         :param author_avatar Avatar of the author that published this post
+        :param author_url Url of the author's profile page in a social network (e.g. Twitter, Facebook. Google+)
         :param content Post content
         :param source Source of this post (e.g. Twitter, Facebook)
         :param source_id Unique identifier used by 'Source'
@@ -222,6 +223,7 @@ class ZahpeeAPI:
                 'name': author_name,
                 'login': author_login,
                 'avatar': author_avatar,
+                'url': author_url,
             },
             'content': content,
             'source': source,
