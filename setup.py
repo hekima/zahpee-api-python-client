@@ -9,7 +9,7 @@ def read(fname):
 
 if __name__ == '__main__':
     setup(name='zahpeeapi',
-          version='0.0.15',
+          version='0.0.16',
           description='Zahpee API Python Client',
           long_description=read('README.md'),
           author="Zahpee Dev Team",

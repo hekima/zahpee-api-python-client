@@ -195,12 +195,13 @@ class ZahpeeAPI:
 
         return self._make_post_request(request_uri, params)
 
-    def create_post(self, monitoring_id, author_name, author_login,
+    def create_post(self, monitoring_id, author_id, author_name, author_login,
             author_avatar, author_url, content, source, source_id, image,
             upload_date):
         """ Create Zahpee post in given monitoring
 
         :param monitoring_id Monitoring that should receive the post
+        :param author_id The id of the author in her social network
         :param author_name Name of the author that published this post
         :param author_login Login of the author that published this post
         :param author_avatar Avatar of the author that published this post
@@ -220,6 +221,7 @@ class ZahpeeAPI:
         params = {
             'uploadDate': upload_date,
             'profile': {
+                'sourceID': author_id,
                 'name': author_name,
                 'login': author_login,
                 'avatar': author_avatar,
